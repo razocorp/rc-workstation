@@ -56,7 +56,9 @@ $ pacman -S [package-name]
 
 Install with
 
-`$ yaourt [query]`
+```
+$ yaourt [query]
+```
 
 or compile manually (see
 <https://wiki.archlinux.org/index.php/AUR#Installing_packages>).
@@ -68,7 +70,10 @@ or compile manually (see
 
 ### Node Modules
 
-Install with `sudo npm install -g [name]`
+Install with 
+```
+$ npm install -g [name]`
+```
 
 - browserify
 - gulp

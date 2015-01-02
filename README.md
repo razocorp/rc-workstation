@@ -2,6 +2,71 @@ rc-workstation
 ==============
 Basic user account settings for TCB workstations.
 
+# Assumed Applications
+
+The following application/packages are expected to be installed on all TCB
+workstations. They might not need to be installed for this user configuration
+to work, but are likely to be referenced in other documentation.
+
+## From Official Pacman Repositories
+
+Installed with `pacman -S [package-name]` 
+
+- awesome
+- chromium
+- evince (Document Viewer)
+- feh
+- firefox
+- flashplugin
+- gimp
+- git
+- gmpc (
+- gpicview (Image Viewer)
+- gvim (includes normal vim)
+- inkscape
+- mongodb
+- ncmpcpp
+- nginx
+- nodejs
+- openssh
+- opera
+- rsync
+- rxvt-unicode
+- scrot
+- ttf-dejavu
+- wget
+- xorg-server
+- xorg-xev
+- xorg-xinit
+- xorg-xkbcomp
+- xorg-xrandr
+- xorg-xrdb
+- xorg-xset
+- xfce4 (currently installed with ALL options)
+- xfce4-terminal
+- xterm
+- zathura
+- zathura-pdf-mupdf
+
+## From Arch User Repositories (AUR)
+
+Installed with `yaourt [query]` or compiled manually (see
+<https://wiki.archlinux.org/index.php/AUR#Installing_packages>).
+
+- package-query
+- sublime-text (version 2; executable located at /usr/bin/subl)
+- ttf-ms-fonts
+- yaourt
+
+## Global NPM Packages
+
+Install with `sudo npm install -g [name]`
+
+- browserify
+- gulp
+- nodemon
+- uglify-js
+
 # Sublime Text 2
 
 ## Default Packages

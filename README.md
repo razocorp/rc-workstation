@@ -148,6 +148,12 @@ Currently the following Plugins are default for TCB:
 
 ## XFCE4
 
+### Keyboard Layout
+
+- .config/xfce4/xfconf/xfce-perchannel-xml/keyboard-layout.xml
+
+Set up both Swedish and US keyboard layouts. Switch with `Alt + Shift`.
+
 ### Window Manager Settings
 
 - .config/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml
@@ -172,15 +178,26 @@ Windows + w = Web Browser
 
 NOTE: Window Manager shortcuts are administered in Menu > Settings > Window Manager > Keybaord
 
+### Power Manager
+
+- .config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml
+
+Basically only set up to sleep.
+
 ### Preferred Applications 
 
 - .config/xfce4/helpers.rc
 
-These settigns are used by exo-open to launch default applications. This does
+These settigns are used by `exo-open` to launch default applications. This does
 NOT set default applications when opening files from a file manager. Use MIME
 types for that.
 
 ### Mime Types
+
+- .local/share/applications/mimeapps.list
+- .config/mimeapps.list
+
+Changes:
 
 - Images generally use GPicView (called "Image Viewer" in XFCE)
 - Text files generally uses Sublime Text
@@ -188,6 +205,8 @@ types for that.
 
 
 ### Suggested Files & Folders to Sync
+
+Make sure you track both locations for panel settigns in XFCE4.
 
 - .config/xfce4/panel/
 - .config/xfce4/desktop/

@@ -10,26 +10,45 @@
 !/.Xresources
 !/README.md
 
-!/.filezilla
-!/.gimp-2.8
-!/.ncmpcpp
+!/.filezilla/
+!/.gimp-2.8/
+!/.ncmpcpp/
 
 !/.config
 /.config/*
 
-!/.config/awesome
-!/.config/awesome-themes
-!/.config/awesome-wallpapers
-!/.config/autostart
-!/.config/feh
-!/.config/gconf
-!/.config/gimp
-!/.config/gmpc
-!/.config/gtk-2.0
-!/.config/gtk-3.0
-!/.config/inkscape
-!/.config/sublime-text-2
+!/.config/mimeapps.list
+!/.config/awesome/
+!/.config/awesome-themes/
+!/.config/awesome-wallpapers/
+!/.config/autostart/
+!/.config/feh/
+!/.config/gconf/
+!/.config/gmpc/
+!/.config/gtk-2.0/
+!/.config/gtk-3.0/
+!/.config/inkscape/
+!/.config/sublime-text-2/
+/.config/sublime-text-2/*
+!/.config/sublime-text-2/Packages/
+/.config/sublime-text-2/Packages/*
+!/.config/sublime-text-2/Packages/User/
+/.config/sublime-text-2/Packages/User/Package Control.ca-list
+/.config/sublime-text-2/Packages/User/Package Control.ca-bundle
+/.config/sublime-text-2/Packages/User/Package Control.system-ca-bundle
+/.config/sublime-text-2/Packages/User/Package Control.last-run
+/.config/sublime-text-2/Packages/User/Package Control.cache/
+/.config/sublime-text-2/Packages/User/Package Control.ca-certs/
+
 !/.config/sublime-text-3
 !/.config/ranger
 !/.config/Thunar
 !/.config/xfce4
+
+!/.local
+/.local/*
+
+!/.local/share
+/.local/share/*
+
+!/.local/share/applications

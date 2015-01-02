@@ -1,0 +1,6 @@
+[submodule "/home/superman/.vim/bundle/Vundle.vim"]
+	path = /home/superman/.vim/bundle/Vundle.vim
+	url = https://github.com/gmarik/Vundle.vim.git
+[submodule ".config/awesome"]
+	path = .config/awesome
+	url = git@github.com:tcb-rc/awesome

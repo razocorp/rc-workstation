@@ -10,7 +10,11 @@ to work, but are likely to be referenced in other documentation.
 
 ### Pacman Repositories
 
-Installed with `pacman -S [package-name]` 
+Install with
+
+```
+$ pacman -S [package-name] 
+```
 
 - awesome
 - chromium
@@ -50,7 +54,11 @@ Installed with `pacman -S [package-name]`
 
 ### Arch User Repositories (AUR)
 
-Installed with `yaourt [query]` or compiled manually (see
+Install with
+
+`$ yaourt [query]`
+
+or compile manually (see
 <https://wiki.archlinux.org/index.php/AUR#Installing_packages>).
 
 - package-query
@@ -91,6 +99,47 @@ following packages:
 
 We need to figure out where keyboard bindings and such are found. Right now i
 have no idea where those settigns are saved.
+
+## VIM
+
+### .vimrc
+
+Lines 1-7 of `.vimrc` are required for Vundle (see below). Lines 8-15
+are the Plugins that Vundle should install.
+
+If you want to use a globally installed Vundle (eg. through AUR) instead,
+you can remove lines 4 and 7 (line 4 tells Vim where to find Vundle, and
+line 7 tells Vundle to update itself).
+
+Actual (non-plugin related) Vim configuration begins after line 17.
+
+### Plugins
+
+Vim plugins are handled by Vundle at TCB. Vundle can be installed from AUR,
+but we recommend following the instructions on [Vundle's GitHub
+Page](https://github.com/gmarik/Vundle.vim#quick-start). However, instead
+of cloning the repo in step 2, should add it as a submodule when using
+Git to track your home directory.
+```
+$ git submodule add https://github.com/gmarik/Vundle.vim.git .vim/bundle/Vundle.vim
+```
+
+Since good practice is to tell Vundle (in `.vimrc`) to handle itself, you should
+not really need to update the submodule manually. Just make sure to commit
+and pulls that Vundle does automatically.
+
+Currently the following Plugins are default for TCB:
+
+- gmarik/Vundle.vim
+- scrooloose/nerdtree
+- scrooloose/syntastic
+- jimmyhchan/dustjs.vim
+- tpope/vim-surround
+- tpope/vim-repeat
+- lua_indent
+- L9
+- FuzzyFinder
+
 
 ## XFCE4
 

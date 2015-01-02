@@ -8,7 +8,7 @@ The following packages/modules/programs are expected to be installed on all TCB
 workstations. They might not need to be installed for this user configuration
 to work, but are likely to be referenced in other documentation.
 
-### From Official Pacman Repositories
+### Pacman Repositories
 
 Installed with `pacman -S [package-name]` 
 
@@ -48,7 +48,7 @@ Installed with `pacman -S [package-name]`
 - zathura
 - zathura-pdf-mupdf
 
-### From Arch User Repositories (AUR)
+### Arch User Repositories (AUR)
 
 Installed with `yaourt [query]` or compiled manually (see
 <https://wiki.archlinux.org/index.php/AUR#Installing_packages>).
@@ -58,7 +58,7 @@ Installed with `yaourt [query]` or compiled manually (see
 - ttf-ms-fonts
 - yaourt
 
-### Global NPM Packages
+### Node Modules
 
 Install with `sudo npm install -g [name]`
 

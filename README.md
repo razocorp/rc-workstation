@@ -2,13 +2,13 @@ rc-workstation
 ==============
 Basic user account settings for TCB workstations.
 
-# Assumed Applications
+## Installed Packages
 
-The following application/packages are expected to be installed on all TCB
+The following packages/modules/programs are expected to be installed on all TCB
 workstations. They might not need to be installed for this user configuration
 to work, but are likely to be referenced in other documentation.
 
-## From Official Pacman Repositories
+### From Official Pacman Repositories
 
 Installed with `pacman -S [package-name]` 
 
@@ -48,7 +48,7 @@ Installed with `pacman -S [package-name]`
 - zathura
 - zathura-pdf-mupdf
 
-## From Arch User Repositories (AUR)
+### From Arch User Repositories (AUR)
 
 Installed with `yaourt [query]` or compiled manually (see
 <https://wiki.archlinux.org/index.php/AUR#Installing_packages>).
@@ -58,7 +58,7 @@ Installed with `yaourt [query]` or compiled manually (see
 - ttf-ms-fonts
 - yaourt
 
-## Global NPM Packages
+### Global NPM Packages
 
 Install with `sudo npm install -g [name]`
 
@@ -67,9 +67,9 @@ Install with `sudo npm install -g [name]`
 - nodemon
 - uglify-js
 
-# Sublime Text 2
+## Sublime Text 2
 
-## Default Packages
+### Default Packages
 
 Packages in Sublime are most easily controlled with Package Control
 <https://packagecontrol.io/>. Normally one follows the instructions there
@@ -87,20 +87,20 @@ following packages:
 - Dust.js Syntax
 - SCSS Syntax
 
-## Suggested Files to Sync
+### Suggested Files to Sync
 
 We need to figure out where keyboard bindings and such are found. Right now i
 have no idea where those settigns are saved.
 
-# XFCE4
+## XFCE4
 
-## Window Manager Settings
+### Window Manager Settings
 
 - .config/xfce4/xfconf/xfce-perchannel-xml/xfwm4.xml
 
 Currently only TCB setting is to enable display compositing.
 
-## Keyboard Settings
+### Keyboard Settings
 
 - .config/xfce4/xfconf/xfce-perchannel-xml/xfce4-keyboard-shortcuts.xml
 
@@ -118,7 +118,7 @@ Windows + w = Web Browser
 
 NOTE: Window Manager shortcuts are administered in Menu > Settings > Window Manager > Keybaord
 
-## Preferred Applications 
+### Preferred Applications 
 
 - .config/xfce4/helpers.rc
 
@@ -126,14 +126,14 @@ These settigns are used by exo-open to launch default applications. This does
 NOT set default applications when opening files from a file manager. Use MIME
 types for that.
 
-## Mime Types
+### Mime Types
 
 - Images generally use GPicView (called "Image Viewer" in XFCE)
 - Text files generally uses Sublime Text
 - Web pages generally uses Chromium
 
 
-## Suggested Files & Folders to Sync
+### Suggested Files & Folders to Sync
 
 - .config/xfce4/panel/
 - .config/xfce4/desktop/

@@ -2,6 +2,30 @@ rc-workstation
 ==============
 Basic user account settings for TCB workstations.
 
+## Usage
+
+If you have a completely fresh home directory, do the following:
+
+1. `$ cd ~`
+2. `$ rm -rf .*`
+3. `$ rm -rf *`
+4. `$ git clone https://github.com/tcb-rc/workstation.git .`
+
+If you do not want to clear your directory, do the following:
+
+1. `$ cd ~`
+2. `$ git init`
+3. `$ git remote add origin https://github.com/tcb-rc/workstation.git`
+4. `$ git pull origin master` This will fail until you have removed all conflicting files.
+
+Next, set up the repo as a fork and push to your own GitHub repo.
+
+1. Set up GitHub Repo for your own configuration
+2. `$ git remote rename origin upstream`
+3. `$ git remote add origin git@github.com:[github-username]/[repo-name]`
+4. `$ git push -u origin master`
+
+
 ## Installed Packages
 
 The following packages/modules/programs are expected to be installed on all TCB

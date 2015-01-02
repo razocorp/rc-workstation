@@ -35,6 +35,9 @@
       <property name="&lt;Super&gt;w" type="string" value="exo-open --launch WebBrowser"/>
       <property name="&lt;Super&gt;f" type="string" value="exo-open --launch FileManager"/>
       <property name="&lt;Super&gt;e" type="string" value="/usr/bin/subl"/>
+      <property name="&lt;Super&gt;Pause" type="string" value="/usr/bin/systemctl suspend"/>
+      <property name="&lt;Super&gt;Page_Down" type="string" value="/usr/bin/amixer set Master 5dB-"/>
+      <property name="&lt;Super&gt;Page_Up" type="string" value="/usr/bin/amixer set Master 5dB+"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">

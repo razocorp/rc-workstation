@@ -25,6 +25,10 @@ Next, set up the repo as a fork and push to your own GitHub repo.
 3. `$ git remote add origin git@github.com:[github-username]/[repo-name]`
 4. `$ git push -u origin master`
 
+NOTE: If you do not want to have to reinstall the Package Control:er in Sublime Text
+everytime you pull your configuration to a new machine... Do NOT commit the automatic
+deletion of `.config/sublime-text-2/Installed Packages/Package Control.sublime-package`.
+
 
 ## Installed Packages
 

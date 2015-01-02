@@ -1,4 +1,3 @@
 rc-workstation
 ==============
-
-Configurations for TCB workstations.
+Basic user account settings for TCB workstations.

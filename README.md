@@ -74,4 +74,3 @@ types for that.
 - .config/xfce4/desktop/
 - .config/xfce4/xfconf/xfce-perchannel-xml/thunar.xml
 - .config/xfce4/xfconf/xfce-perchannel-xml/xfce4-panel.xml
-- .config/xfce4/xfconf/xfce-perchannel-xml/xfce4-power-manager.xml

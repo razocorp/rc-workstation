@@ -1,5 +1,15 @@
 [Default Applications]
 text/plain=sublime-text.desktop
+image/svg+xml=gpicview.desktop
+application/xhtml+xml=chromium.desktop
+text/html=chromium.desktop
+application/x-php=chromium.desktop
+application/pdf=evince.desktop
 
 [Added Associations]
 text/plain=sublime-text.desktop;
+image/svg+xml=gpicview.desktop;
+application/xhtml+xml=chromium.desktop;
+text/html=chromium.desktop;
+application/x-php=chromium.desktop;
+application/pdf=evince.desktop;

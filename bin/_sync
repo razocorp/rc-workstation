@@ -1,12 +1,12 @@
 #!/bin/bash
-log_file="$HOME/.log/sync.log"
+
+items="dev"
+#items="file dir/ dir/file dir/dir/file";
 local_dir="$HOME"
 host="192.168.1.60"
 host_dir="$HOME/sync"
-items="aaa/ dev/";
+log_file="$HOME/.log/sync.log"
 
-# NOTE: THESE SHOULD NOT BE EDITED (lines 10-12)
-#EXTERNAL=false;
 RESTORE=false;
 BACKUP=false;
 SOFT=false;
@@ -23,9 +23,6 @@ while getopts ":sbr" opt; do
 			# note this does not affect the soft sync EDIT: don't know if this is true
 			RESTORE=true
 			;;
-#		"E")
-#			EXTERNAL=true
-#			;;
 	esac
 done
 function now()
@@ -67,13 +64,15 @@ for d in $items; do
 			echo "Source location ($host_path) does not exist. Do nothing." #>> $log_file
 		elif [[ ! -e $local_path ]]; then
 			echo "Target does not exist." #>> $log_file
+
 			if [[ "$d" == */ ]]; then
 				echo "$local_path is a directory, creating target directory." #>> $log_file;
-				mkdir -p $local_path #>> $log_file
+				tmp=$local_path
 			else
 				echo "$local_path is file, creating parent directory." #>> $log_file;
-				mkdir -p ${local_path%\/*} #>> $log_file
+				tmp=${local_path%\/*} #>> $log_file
 			fi
+			mkdir -p $tmp #>> $log_file
 		fi
 	elif $BACKUP && ! $RESTORE ; then
 		# Is backing up
@@ -90,16 +89,15 @@ for d in $items; do
 			echo "Target does not exist." #>> $log_file
 			if [[ "$d" == */ ]]; then
 				echo "$host_path is a directory, creating target directory." #>> $log_file;
-				ssh ${host} mkdir -p $host_path #>> $log_file;
+				tmp=$local_path
 			else
-				# TODO this is not needed. make it test for existence of parent
-				# directory above instead if it is a file
-				echo "$host_path is a file, creating parent directory." #>> $log_file;
-				ssh ${host} mkdir -p ${host_path%\/*} #>> $log_file;
+				echo "$host_path is file, creating parent directory." #>> $log_file;
+				tmp=${host_path%\/*} #>> $log_file
 			fi
+			ssh ${host} mkdir -p $tmp #>> $log_file;
 		fi
 	else
-		echo "You have to choose either backup (-B) OR restore (-R)." #>> $log_file
+		echo "You have to choose either backup (-b) OR restore (-r)." #>> $log_file
 		exit 0
 	fi
 	if ! $error ; then

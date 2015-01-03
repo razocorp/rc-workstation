@@ -1,0 +1,109 @@
+#!/bin/bash
+log_file="$HOME/.log/sync.log"
+local_dir="$HOME"
+host="192.168.1.60"
+host_dir="$HOME/sync"
+items="aaa/ dev/";
+
+# NOTE: THESE SHOULD NOT BE EDITED (lines 10-12)
+#EXTERNAL=false;
+RESTORE=false;
+BACKUP=false;
+SOFT=false;
+while getopts ":sbr" opt; do
+	case $opt in
+		"s")
+			SOFT=true
+			;;
+		"b")
+			# note this does not affect the soft sync EDIT: don't know if this is true
+			BACKUP=true
+			;;
+		"r")
+			# note this does not affect the soft sync EDIT: don't know if this is true
+			RESTORE=true
+			;;
+#		"E")
+#			EXTERNAL=true
+#			;;
+	esac
+done
+function now()
+{
+	echo $(date +%Y-%m-%d\ %H:%M:%S)
+}
+
+PARAMS="av${PARAMS}e ssh"
+
+if $SOFT ; then
+	PARAMS="u$PARAMS"
+else
+	PARAMS="$PARAMS --delete"
+fi
+
+#if $EXTERNAL ; then
+#	PARAMS="z$PARAMS"
+#fi
+
+PARAMS="$PARAMS"
+
+for d in $items; do
+	echo "" #>> $log_file
+	error=false
+	params=$PARAMS;
+	local_path="$local_dir/$d"
+	host_path="$host_dir/$d"
+
+	# Make sure the user has chosen to backup OR restore
+	if $RESTORE && ! $BACKUP ; then
+		# Is restoring...
+
+		# set paths 
+		paths="$host:$host_path $local_path"
+		echo $(now) #>> $log_file
+		echo "HARD SYNC, restore: $paths" #>> $log_file
+		if [[ ! `ssh ${host} test -e $host_path && echo exists` ]] ; then
+			error=true
+			echo "Source location ($host_path) does not exist. Do nothing." #>> $log_file
+		elif [[ ! -e $local_path ]]; then
+			echo "Target does not exist." #>> $log_file
+			if [[ "$d" == */ ]]; then
+				echo "$local_path is a directory, creating target directory." #>> $log_file;
+				mkdir -p $local_path #>> $log_file
+			else
+				echo "$local_path is file, creating parent directory." #>> $log_file;
+				mkdir -p ${local_path%\/*} #>> $log_file
+			fi
+		fi
+	elif $BACKUP && ! $RESTORE ; then
+		# Is backing up
+
+		# set paths 
+		paths="$local_path $host:$host_path"
+		echo $(now) #>> $log_file
+		echo "HARD SYNC, backup: $paths" #>> $log_file
+		## check for existence of destination
+		if [[ ! -e $local_path ]]; then
+			error=true
+			echo "Source location ($local_path) does not exist. Do nothing." #>> $log_file
+		elif [[ ! `ssh ${host} test -e $host_path && echo exists` ]] ; then
+			echo "Target does not exist." #>> $log_file
+			if [[ "$d" == */ ]]; then
+				echo "$host_path is a directory, creating target directory." #>> $log_file;
+				ssh ${host} mkdir -p $host_path #>> $log_file;
+			else
+				# TODO this is not needed. make it test for existence of parent
+				# directory above instead if it is a file
+				echo "$host_path is a file, creating parent directory." #>> $log_file;
+				ssh ${host} mkdir -p ${host_path%\/*} #>> $log_file;
+			fi
+		fi
+	else
+		echo "You have to choose either backup (-B) OR restore (-R)." #>> $log_file
+		exit 0
+	fi
+	if ! $error ; then
+		rsync -$params $paths >> $log_file
+	fi
+	echo "--------------------------------------------------" #>> $log_file
+done

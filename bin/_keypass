@@ -1,0 +1,38 @@
+#!/bin/bash
+
+GEN=false
+DIR=false
+PERM=true
+
+while getopts ":dgp" opt; do
+	case $opt in
+		"d")
+			echo "setting DIR=true"
+			DIR=true
+			;;
+		"g")
+			# note this does not affect the soft sync EDIT: don't know if this is true
+			echo "setting GEN=true"
+			GEN=true
+			;;
+		"p")
+			# note this does not affect the soft sync EDIT: don't know if this is true
+			PERM=false
+			;;
+	esac
+done
+
+if $GEN ; then
+	ssh-keygen
+fi
+
+
+com="cat >> .ssh/authorized_keys"
+if $DIR ; then
+	com="mkdir -m 700 -p .ssh && $com"
+fi
+if $PERM ; then 
+	com="$com && chmod 600 .ssh/authorized_keys"
+fi
+
+cat .ssh/id_rsa.pub | ssh 192.168.1.60 "$com"

@@ -13,6 +13,7 @@
 !/.filezilla/
 !/.gimp-2.8/
 !/.ncmpcpp/
+!/bin/
 
 !/.config
 /.config/*

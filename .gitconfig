@@ -1,3 +1,6 @@
 [push]
 	defeault = simple
 	default = simple
+[user]
+	name = Tom Johansson
+	email = tom.johansson@thecodebureau.com

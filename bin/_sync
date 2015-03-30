@@ -1,6 +1,6 @@
 #!/bin/bash
 
-items="dev"
+items="dev/ ebooks/"
 #items="file dir/ dir/file dir/dir/file";
 local_dir="$HOME"
 host="192.168.1.60"
